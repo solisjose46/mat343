@@ -1,0 +1,631 @@
+% MAT 343 MATLAB Assignment # 1
+% Question 1
+
+A = [4 5 -3; 5 2 1; -5 -5 6;]
+
+A =
+
+       4              5             -3       
+       5              2              1       
+      -5             -5              6       
+
+B = [3.8 3.8 -0.3; -0.2 1.4 1.1; 3.9 3.0 3.6]
+
+B =
+
+      19/5           19/5           -3/10    
+      -1/5            7/5           11/10    
+      39/10           3             18/5     
+
+C = [2 5 2; -6 6 3]
+
+C =
+
+       2              5              2       
+      -6              6              3       
+
+% i
+B+A
+
+ans =
+
+      39/5           44/5          -33/10    
+      24/5           17/5           21/10    
+     -11/10          -2             48/5     
+
+% ii
+4*A + 4*B
+
+ans =
+
+     156/5          176/5          -66/5     
+      96/5           68/5           42/5     
+     -22/5           -8            192/5     
+
+
+% iii
+3 + C
+
+ans =
+
+       5              8              5       
+      -3              9              6       
+
+
+% iv
+A*B
+
+ans =
+
+       5/2           66/5          -13/2     
+      45/2          124/5           43/10    
+      27/5           -8             88/5     
+
+% v
+A + C
+Arrays have incompatible sizes for this operation. 
+
+% vi
+C*A
+
+ans =
+
+      23             10             11       
+      -9            -33             42       
+
+
+% vii
+%A*C
+A*C
+
+Error using *
+Incorrect dimensions for matrix multiplication. Check that the number of columns in the first
+matrix matches the number of rows in the second matrix. To perform elementwise
+multiplication, use '.*'.
+ 
+% viii
+A + B
+
+ans =
+
+      39/5           44/5          -33/10    
+      24/5           17/5           21/10    
+     -11/10          -2             48/5     
+
+
+% ix
+B*A
+
+ans =
+
+     357/10         281/10         -47/5     
+       7/10         -37/10          43/5     
+      63/5           15/2          129/10    
+
+
+% x
+4*(A + B)
+
+ans =
+
+     156/5          176/5          -66/5     
+      96/5           68/5           42/5     
+     -22/5           -8            192/5     
+
+% Question 1(a)
+% v and vii did not execute because the dimensions were incompatible
+
+% Question 1(b)
+if (A*B) == (B*A)
+        disp("question 1b true")
+else
+        disp("question 1b false")
+end
+question 1b false
+% no, AB does not equal BA
+
+% Question 1(c)
+if (A + B) == (B+ A)
+        disp("question 1c true")
+else
+        disp("question 1c false")
+end
+question 1c true
+% Yes, A+B = B+A
+
+% Question 1(d)
+% 3 was added to every element of C
+
+% Question 1(e)
+if 4*(A + B) == 4*(A+ B)
+        disp("question 1e true")
+else
+        disp("question 1e false")
+end
+question 1e true
+% Yes, 4(A+B) = 4A+4B
+
+% Question 2
+A = [-3 9; -1 3]
+
+A =
+
+      -3              9       
+      -1              3       
+
+B = [2 4; 3 6]
+
+B =
+
+       2              4       
+       3              6       
+
+C = [-2 -6; 1 3]
+
+C =
+
+      -2             -6       
+       1              3       
+
+% i
+if A*A == zeros(2)
+        disp("question 2i true")
+else
+        disp("question 2i false")
+end
+question 2i true
+
+% ii
+if (A-B)*(A+B) == (A*A)-(B*B)
+        disp("question 2ii true")
+else
+        disp("question 2ii false")
+end
+question 2ii false
+
+% iii
+if A*(B+C) == A*B + A*C
+        disp("question 2iii true")
+else
+        disp("question 2iii false")
+end
+question 2iii true
+
+% iv
+if B*C == zeros(2)
+        disp("question 2iv true")
+else
+        disp("question 2iv false")
+end
+question 2iv true
+
+% v
+if A*(B+C) == B*A + C*A
+        disp("question 2v true")
+else
+        disp("question 2v false")
+end
+question 2v false
+
+% vi
+if (A+B) * (A+B) == A*A + 2*A*B + B*B
+        disp("question 2vi true")
+else
+        disp("question 2vi false")
+end
+question 2vi false
+
+% vii
+if (A*B)*(A*B) == (A*A)*(B*B)
+        disp("question 2vii true")
+else
+        disp("question 2vii false")
+end
+question 2vii false
+
+% Question 3
+
+A = [6 -5; 1 -5]
+
+A =
+
+       6             -5       
+       1             -5       
+
+B = [-3 4; 4 4]
+
+B =
+
+      -3              4       
+       4              4       
+
+C = [-3 -2 -3; 6 -4 2]
+
+C =
+
+      -3             -2             -3       
+       6             -4              2       
+
+% i
+A'*B'
+
+ans =
+
+     -14             28       
+      -5            -40       
+
+% ii
+A*C'
+Error using *
+Incorrect dimensions for matrix multiplication. Check that the number of columns in the first matrix matches the number of rows
+in the second matrix. To perform elementwise multiplication, use '.*'.
+
+% iii
+B'
+
+ans =
+
+      -3              4       
+       4              4       
+
+% iv
+(A*B)'
+
+ans =
+
+     -38            -23       
+       4            -16       
+
+% v
+(A')'
+
+ans =
+
+       6             -5       
+       1             -5       
+
+% vi
+C'*A
+
+ans =
+
+     -12            -15       
+     -16             30       
+     -16              5       
+
+% vii
+A'*B'
+
+ans =
+
+     -14             28       
+      -5            -40       
+
+% Question 3(a)
+% Matlab did not excute ii because its dimensions are incompatible.
+
+% Question 3(b)
+if (A*B)' == A'*B'
+        disp("Question 3(b) Yes, (AB)^T is equal to A^T*B^T")
+else
+        disp("Question 3(b) No, (AB)^T does not equal A^T*B^T")
+end
+Question 3(b) No, (AB)^T does not equal A^T*B^T
+
+if (A*B)' == B'*A'
+        disp("Question 3(b) Yes, (AB)^T is equal to B^T*A^T")
+else
+        disp("Question 3(b) No, (AB)^T does not equal B^T*A^T")
+end
+Question 3(b) Yes, (AB)^T is equal to B^T*A^T
+
+% Question 3(c)
+if B == B'
+        disp("Yes, B is symmetric. A matrix is symmetric when the matrix is equivalent to its transpose")
+else
+        disp("No, B is not symmetric. A matrix is symmetric when the matrix is equivalent to its transpose")
+end
+Yes, B is symmetric. A matrix is symmetric when the matrix is equivalent to its transpose
+
+% Question 3(d)
+% The outer transpose reverses the change the inner transpose. (A^T)^T is equal to A.
+
+% Question 4
+
+R = round(10*rand(3))
+
+R =
+
+       8              0              7       
+      10              8              8       
+       7              9              7       
+
+S = round(10*rand(3))
+
+S =
+
+       4              7              0       
+       7              0              1       
+       2              3              8       
+
+% i
+[R*S(:,1), R*S(:,2), R*S(:,3)]
+
+ans =
+
+      46             77             56       
+     112             94             72       
+     105             70             65       
+
+
+% ii
+[R(1,:)*S; R(2,:)*S; R(3,:)*S ]
+
+ans =
+
+      46             77             56       
+     112             94             72       
+     105             70             65       
+
+% iii
+R*S
+
+ans =
+
+      46             77             56       
+     112             94             72       
+     105             70             65       
+
+
+% The product of R*S is equivalent to the matrices of i and ii
+
+% iv
+% i uses matrix column vector multiplication (right) vs ii uses row matrix multiplication (left)
+
+% Question 5
+
+M = triu(9*ones(3))
+
+M =
+
+       9              9              9       
+       0              9              9       
+       0              0              9       
+
+N = diag([6 6 6])
+
+N =
+
+       6              0              0       
+       0              6              0       
+       0              0              6       
+
+P = diag([7 8 9])
+
+P =
+
+       7              0              0       
+       0              8              0       
+       0              0              9       
+
+Q = 5*ones(3, 2)
+
+Q =
+
+       5              5       
+       5              5       
+       5              5       
+
+% Question 6
+
+G = zeros(4, 7) + eye(4, 7);
+G(3:4,1:2) = A
+
+G =
+
+       1              0              0              0              0              0              0       
+       0              1              0              0              0              0              0       
+       6             -5              1              0              0              0              0       
+       1             -5              0              1              0              0              0       
+
+G(1:2,3:4) = B
+
+G =
+
+       1              0             -3              4              0              0              0       
+       0              1              4              4              0              0              0       
+       6             -5              1              0              0              0              0       
+       1             -5              0              1              0              0              0       
+
+G(1:2,5:7) = C
+
+G =
+
+       1              0             -3              4             -3             -2             -3       
+       0              1              4              4              6             -4              2       
+       6             -5              1              0              0              0              0       
+       1             -5              0              1              0              0              0       
+
+% Question 7(a)
+H = G(1:3,5:7)
+
+H =
+
+      -3             -2             -3       
+       6             -4              2       
+       0              0              0       
+
+
+% Question 7(b)
+E = H;
+E(1,2) = 2*E(1,2)
+
+E =
+
+      -3             -4             -3       
+       6             -4              2       
+       0              0              0       
+
+
+% Question 7(c)
+
+F = zeros(2,3)
+
+F =
+
+       0              0              0       
+       0              0              0       
+
+F(1,:) = H(1,:)
+
+F =
+
+      -3             -2             -3       
+       0              0              0       
+
+F(2,:) = H(2,:)
+
+F =
+
+      -3             -2             -3       
+       6             -4              2       
+
+% Question 7(d)
+
+% It return all rows and columns of G
+
+% Question 7(e)
+% There is an error because G has 4 rows. There is no row 7.
+
+% Question 7(f)
+max(G)
+
+ans =
+
+  Columns 1 through 6
+
+       6              1              4              4              6              0       
+
+  Column 7
+
+       2       
+
+% Max returns a row vector with the maximum value of each column in G
+
+% Question 7(g)
+G(G>3)
+
+ans =
+
+       6       
+       4       
+       4       
+       4       
+       6       
+
+% This reutrns all elements in G greater than 3 as a column vector.
+
+G(G>3) = 300
+
+G =
+
+  Columns 1 through 6
+
+       1              0             -3            300             -3             -2       
+       0              1            300            300            300             -4       
+     300             -5              1              0              0              0       
+       1             -5              0              1              0              0       
+
+  Column 7
+
+      -3       
+       2       
+       0       
+       0       
+
+% This replaces all elements greater than 3 with 300.
+
+% Question 8
+
+format rat
+A = [3 5 4;-12 -23 -14;6 4 14]
+
+A =
+
+       3              5              4       
+     -12            -23            -14       
+       6              4             14       
+
+A(2,:) = A(2,:) + 4*A(1,:)
+
+A =
+
+       3              5              4       
+       0             -3              2       
+       6              4             14       
+
+A(3,:) = A(3,:) - 2*A(1,:)
+
+A =
+
+       3              5              4       
+       0             -3              2       
+       0             -6              6       
+
+A(3,:) = A(3,:) - 2*A(2,:)
+
+A =
+
+       3              5              4       
+       0             -3              2       
+       0              0              2       
+
+A(1,:) = 1/3*A(1,:)
+
+A =
+
+       1              5/3            4/3     
+       0             -3              2       
+       0              0              2       
+
+A(2,:) = -1/3*A(2,:)
+
+A =
+
+       1              5/3            4/3     
+       0              1             -2/3     
+       0              0              2       
+
+A(3,:) = 1/2*A(3,:)
+
+A =
+
+       1              5/3            4/3     
+       0              1             -2/3     
+       0              0              1       
+
+A(1,:) = A(1,:) - 5/3*A(2,:)
+
+A =
+
+       1              *             22/9     
+       0              1             -2/3     
+       0              0              1       
+
+A(1,:) = A(1,:) - 22/9*A(3,:)
+
+A =
+
+       1              *              0       
+       0              1             -2/3     
+       0              0              1       
+
+A(2,:) = A(2,:) + 2/3*A(3,:)
+
+A =
+
+       1              *              0       
+       0              1              0       
+       0              0              1       
+
+diary off

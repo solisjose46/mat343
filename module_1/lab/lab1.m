@@ -2,9 +2,9 @@
 
 % Question 1
 
-A = [4 5 -3; 5 2 1; -5 -5 6;];
-B = [3.8 3.8 -0.3; -0.2 1.4 1.1; 3.9 3.0 3.6];
-C = [2 5 2; -6 6 3];
+A = [4 5 -3; 5 2 1; -5 -5 6;]
+B = [3.8 3.8 -0.3; -0.2 1.4 1.1; 3.9 3.0 3.6]
+C = [2 5 2; -6 6 3]
 
 % i
 B+A
@@ -150,11 +150,27 @@ C'*A
 A'*B'
 
 % Question 3(a)
+% Matlab did not excute ii because its dimensions are incompatible.
 
 % Question 3(b)
+if (A*B)' == A'*B'
+	disp("Question 3(b) Yes, (AB)^T is equal to A^T*B^T")
+else
+	disp("Question 3(b) No, (AB)^T does not equal A^T*B^T")
+end
+
+if (A*B)' == B'*A'
+	disp("Question 3(b) Yes, (AB)^T is equal to B^T*A^T")
+else
+	disp("Question 3(b) No, (AB)^T does not equal B^T*A^T")
+end
 
 % Question 3(c)
-
+if B == B'
+	disp("Yes, B is symmetric. A matrix is symmetric when the matrix is equivalent to its transpose")
+else
+	disp("No, B is not symmetric. A matrix is symmetric when the matrix is equivalent to its transpose")
+end
 % Question 3(d)
 
 % Question 4
@@ -169,8 +185,12 @@ S = round(10*rand(3))
 [R(1,:)*S; R(2,:)*S; R(3,:)*S ]
 
 % iii
+R*S
+% The product of R*S is equivalent to the matrices of i and ii
 
 % iv
+% i uses matrix column vector multiplication (right) vs ii uses row matrix multiplication (left)
+
 
 % Question 5
 
@@ -179,7 +199,7 @@ S = round(10*rand(3))
 %P = [7 0 0; 0 8 0; 0 0 9]
 %Q = [5 5; 5 5; 5 5]
 
-M = triu(9*eye(3))
+M = triu(9*ones(3))
 N = diag([6 6 6])
 P = diag([7 8 9])
 Q = 5*ones(3, 2)
@@ -215,9 +235,34 @@ F(2,:) = H(2,:)
 % There is an error because G has 4 rows. There is no row 7.
 
 % Question 7(f)
-
-% Max returns a row vector with the maximum value of each column in G.
 max(G)
+% Max returns a row vector with the maximum value of each column in G.
+
 % Question 7(g)
+
+G(G>3)
+% This reutrns all elements in G greater than 3.
+G(G>3) = 300
+% This replaces all elements greater than 3 with 300.
+% Question 8
+format rat
+A = [3 5 4;-12 -23 -14;6 4 14]
+A(2,:) = A(2,:) + 4*A(1,:)
+A(3,:) = A(3,:) - 2*A(1,:)
+A(3,:) = A(3,:) - 2*A(2,:)
+A(1,:) = 1/3*A(1,:)
+A(2,:) = -1/3*A(2,:)
+A(3,:) = 1/2*A(3,:)
+A(1,:) = A(1,:) - 5/3*A(2,:)
+A(1,:) = A(1,:) - 22/9*A(3,:)
+A(2,:) = A(2,:) + 2/3*A(3,:)
+
+
+
+
+
+
+
+
 
 
