@@ -283,81 +283,76 @@ lu_nopivot(A)
 
 % determines if q is reasonable answer for determinate of matrix size nxn for range -p to p
 function y = isReasonable(n, p, q)
-np = p^n;
-np = np * n;
-if((-1*np) <= q & q <= np)
-	disp([q " is a reasonable answer"])
-else
-	disp([q " is not a reasonable answer"])
-end
+	np = p^n;
+	np = np * n;
+	if((-1*np) <= q & q <= np)
+		disp([q " is a reasonable answer"])
+	else
+		disp([q " is not a reasonable answer"])
+	end
 end
 
 % Shows work of determinate by row
 % pass in row_det(A, row)
 
 function y = row_det(A, row)
-det_A = det(A);
-temp = A;
-B = [];
-from = 1;
-[meh, to] = size(A);
-
-% for rows
-for index = from:to
-       temp(:,index) = [];
-       temp(row, :) = [];
-       B = temp;
-       minor = det(B);
-       cofact = (-1)^(row+index)*minor;
-       disp(["(" A(row,index) ") ("  cofact ") + "])
-       temp = A;
-end
-disp(" =")
-disp(det_A)
+	det_A = det(A);
+	temp = A;
+	B = [];
+	from = 1;
+	[meh, to] = size(A);
+	
+	% for rows
+	for index = from:to
+		temp(:,index) = [];
+		temp(row, :) = [];
+		B = temp;
+		minor = det(B);
+		cofact = (-1)^(row+index)*minor;
+		disp(["(" A(row,index) ") ("  cofact ") + "]
+		)temp = A;
+	end
+	disp(" =")
+	disp(det_A)
 end
 
 % Shows work of determinate by row
 % pass in row_det(A, row)
 
 function y = col_det(A, col)
-det_A = det(A);
-temp = A;
-B = [];
-from = 1;
-[meh, to] = size(A);
-
-% for rows
-for index = from:to
-       temp(index,:) = [];
-       temp(:, col) = [];
-       B = temp;
-       minor = det(B);
-       cofact = (-1)^(col+index)*minor;
-       disp(["(" A(index,col) ") ("  cofact ") + "])
-       temp = A;
-end
-disp(" =")
-disp(det_A)
+	det_A = det(A);
+	temp = A;
+	B = [];
+	from = 1;
+	[meh, to] = size(A);
+	% for rows
+	for index = from:to
+		temp(index,:) = [];
+		temp(:, col) = [];
+		B = temp;
+		minor = det(B);
+		cofact = (-1)^(col+index)*minor;
+		disp(["(" A(index,col) ") ("  cofact ") + "])
+		temp = A;
+	end
+	disp(" =")
+	disp(det_A)
 end
 
 function [L, U] = lu_nopivot(A)
-
-n = size(A, 1); % Obtain number of rows (should equal number of columns)
-L = eye(n); % Start L off as identity and populate the lower triangular half slowly
-for k = 1 : n
-    % For each row k, access columns from k+1 to the end and divide by
-    % the diagonal coefficient at A(k ,k)
-    L(k + 1 : n, k) = A(k + 1 : n, k) / A(k, k);
-
-    % For each row k+1 to the end, perform Gaussian elimination
-    % In the end, A will contain U
-    for l = k + 1 : n
-        A(l, :) = A(l, :) - L(l, k) * A(k, :);
-    end
-end
-U = A;
-
-L
-U
-
+	n = size(A, 1); % Obtain number of rows (should equal number of columns)
+	L = eye(n); % Start L off as identity and populate the lower triangular half slowly
+	for k = 1 : n
+		% For each row k, access columns from k+1 to the end and divide by
+		% the diagonal coefficient at A(k ,k)
+		L(k + 1 : n, k) = A(k + 1 : n, k) / A(k, k);
+		% For each row k+1 to the end, perform Gaussian elimination
+		% In the end, A will contain U
+		for l = k + 1 : n
+			A(l, :) = A(l, :) - L(l, k) * A(k, :);
+		end
+	end
+	U = A;
+	L
+	U
 end

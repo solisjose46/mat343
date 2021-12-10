@@ -57,7 +57,7 @@ format rat
 % Question 13: find projection v onto u and scalar component in the direction v to u
 %u = [6; 4];
 %v = [-3; 0];
-%% projection v onto u: projvU
+%% projection u onto v: projvU
 %(dot(u,v)/norm(v)^2)*v
 %sym(dot(u,v)/norm(v))
 
